@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تأكيد الدفع</title>
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Cairo', sans-serif;
+      padding: 30px;
+      text-align: center;
+      direction: rtl;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 12px 30px;
+      margin-top: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #4caf50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #388e3c;
+    }
+
+    .message {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .message h3 {
+      color: #2e7d32;
+      margin-bottom: 20px;
+    }
+
+    .message .actions button {
+      background-color: #2196f3;
+      margin: 10px;
+    }
+
+    .message .actions button:last-child {
+      background-color: #ff9800;
+    }
+
+    .message .actions button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>معلومات الدفع</h2>
+
+  <form id="paymentForm">
+    <input type="text" placeholder="الاسم الكامل" required />
+    <input type="text" placeholder="العنوان" required />
+    <input type="text" placeholder="رقم الفيزا" required />
+    <button type="submit">تأكيد الدفع</button>
+  </form>
+
+  <div class="message" id="successMessage">
+    <h3>✅ تم الدفع بنجاح!</h3>
+    <div class="actions">
+  <button onclick="window.open('https://www.google.com/maps?q=30.0444,31.2357', '_blank')">متابعة الطلب</button>
+  
+   <button onclick="window.open('https://web.whatsapp.com/', '_blank')">التواصل مع البائع</button>
+</div>
+
+  <script>
+    const form = document.getElementById("paymentForm");
+    const message = document.getElementById("successMessage");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); 
+      form.style.display = "none";
+      message.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
